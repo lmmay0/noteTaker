@@ -26,6 +26,15 @@ router.post("/", (req, res) => {
 
     })
 })
+router.delete("/:id", (req, res) => {
+    getNotes().then(oldNotes => {
+        console.log(oldNotes)
+        console.log(req.params.id)
+        // let filteredNotes = oldNotes.filter(note => note.id !== req.params.id)
+        // console.log(filteredNotes)
+    })
+}
+)
 module.exports = router
 
 // add and delete notes
