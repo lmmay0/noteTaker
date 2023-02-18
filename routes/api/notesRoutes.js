@@ -27,12 +27,18 @@ router.post("/", (req, res) => {
     })
 })
 router.delete("/:id", (req, res) => {
-    getNotes().then(oldNotes => {
-        console.log(oldNotes)
-        console.log(req.params.id)
-        // let filteredNotes = oldNotes.filter(note => note.id !== req.params.id)
-        // console.log(filteredNotes)
-    })
+    // getNotes().then(oldNotes => {
+    //     console.log("text")
+    //     console.log(oldNotes)
+    //     console.log(req.params.id)
+    //     let filteredNotes = oldNotes.filter(note => note.id !== req.params.id)
+    //     console.log(filteredNotes)
+    // })
+    getNotes()
+      .then((notes) => notes.filter((note) => note.id != req.params.id))
+      .then((filteredNotes) => console.log(filteredNotes));
+      
+
 }
 )
 module.exports = router
